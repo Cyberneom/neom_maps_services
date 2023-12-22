@@ -20,16 +20,12 @@ const _queryAutocompleteUrl = '/queryautocomplete/json';
 /// https://developers.google.com/places/web-service/
 class GoogleMapsPlaces extends GoogleWebService {
   GoogleMapsPlaces({
-    String? apiKey,
-    String? baseUrl,
-    Client? httpClient,
-    Map<String, String>? apiHeaders,
+    super.apiKey,
+    super.baseUrl,
+    super.httpClient,
+    super.apiHeaders,
   }) : super(
-          apiKey: apiKey,
-          baseUrl: baseUrl,
           apiPath: _placesUrl,
-          httpClient: httpClient,
-          apiHeaders: apiHeaders,
         );
 
   Future<PlacesSearchResponse> searchNearbyWithRadius(
@@ -126,7 +122,7 @@ class GoogleMapsPlaces extends GoogleWebService {
     return _decodeDetailsResponse(await doGet(url, headers: apiHeaders));
   }
 
-  @deprecated
+  @Deprecated('')
   Future<PlacesDetailsResponse> getDetailsByReference(
     String reference, {
     String? sessionToken,
@@ -544,12 +540,12 @@ class PlacesSearchResponse extends GoogleResponseStatus {
   final String? nextPageToken;
 
   PlacesSearchResponse({
-    required String status,
-    String? errorMessage,
+    required super.status,
+    super.errorMessage,
     this.results = const [],
     this.htmlAttributions = const [],
     this.nextPageToken,
-  }) : super(status: status, errorMessage: errorMessage);
+  });
 
   factory PlacesSearchResponse.fromJson(Map<String, dynamic> json) =>
       _$PlacesSearchResponseFromJson(json);
@@ -825,14 +821,11 @@ class PlacesDetailsResponse extends GoogleResponseStatus {
   final List<String> htmlAttributions;
 
   PlacesDetailsResponse({
-    required String status,
-    String? errorMessage,
+    required super.status,
+    super.errorMessage,
     required this.result,
     required this.htmlAttributions,
-  }) : super(
-          status: status,
-          errorMessage: errorMessage,
-        );
+  });
 
   factory PlacesDetailsResponse.fromJson(Map<String, dynamic> json) =>
       _$PlacesDetailsResponseFromJson(json);
@@ -882,13 +875,10 @@ class PlacesAutocompleteResponse extends GoogleResponseStatus {
   final List<Prediction> predictions;
 
   PlacesAutocompleteResponse({
-    required String status,
-    String? errorMessage,
+    required super.status,
+    super.errorMessage,
     required this.predictions,
-  }) : super(
-          status: status,
-          errorMessage: errorMessage,
-        );
+  });
 
   factory PlacesAutocompleteResponse.fromJson(Map<String, dynamic> json) =>
       _$PlacesAutocompleteResponseFromJson(json);

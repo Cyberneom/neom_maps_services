@@ -1,6 +1,7 @@
 import 'dart:async';
+
+import 'package:neom_maps_services/src/utils.dart';
 import 'package:test/test.dart';
-import 'package:google_maps_webservice/src/utils.dart';
 
 Future<void> main() async {
   group('Google Maps Utils', () {

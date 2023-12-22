@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:google_maps_webservice/geocoding.dart';
+import 'package:neom_maps_services/geocoding.dart';
 import 'package:test/test.dart';
 
 final _uri = Uri(
@@ -10,7 +10,7 @@ final _uri = Uri(
 );
 
 Future<void> main() async {
-  final apiKey = 'MY_API_KEY';
+  const apiKey = 'MY_API_KEY';
   var geocoding = GoogleMapsGeocoding(apiKey: apiKey);
 
   tearDownAll(() {

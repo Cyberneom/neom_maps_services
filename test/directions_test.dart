@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:google_maps_webservice/src/core.dart';
-import 'package:google_maps_webservice/src/directions.dart';
+import 'package:neom_maps_services/src/core.dart';
+import 'package:neom_maps_services/src/directions.dart';
 import 'package:test/test.dart';
 
 final _uri = Uri(
@@ -11,7 +11,7 @@ final _uri = Uri(
 );
 
 Future<void> main() async {
-  final apiKey = 'MY_API_KEY';
+  const apiKey = 'MY_API_KEY';
   var directions = GoogleMapsDirections(apiKey: apiKey);
 
   tearDownAll(() {

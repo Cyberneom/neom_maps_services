@@ -3,7 +3,7 @@ library google_maps_webservice.gelocation.example;
 import 'dart:async';
 import 'dart:io';
 
-import 'package:google_maps_webservice/geolocation.dart';
+import 'package:neom_maps_services/geolocation.dart';
 
 final geolocation =
     GoogleMapsGeolocation(apiKey: Platform.environment['API_KEY']);

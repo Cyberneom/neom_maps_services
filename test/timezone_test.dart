@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:google_maps_webservice/timezone.dart';
+import 'package:neom_maps_services/timezone.dart';
 import 'package:test/test.dart';
 
 final _uri = Uri(
@@ -10,7 +10,7 @@ final _uri = Uri(
 );
 
 Future<void> main() async {
-  final apiKey = 'MY_API_KEY';
+  const apiKey = 'MY_API_KEY';
 
   var timeZone = GoogleMapsTimezone(apiKey: apiKey);
 
@@ -22,8 +22,8 @@ Future<void> main() async {
     group('build url (only api key, everything else over REST/JSON POST', () {
       test('default url building with api key', () {
         final location = Location(lat: 38.908133, lng: -77.047119);
-        final timestamp = 1458000;
-        final language = 'en';
+        const timestamp = 1458000;
+        const language = 'en';
 
         expect(
           timeZone.buildUrl(

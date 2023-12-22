@@ -14,16 +14,12 @@ const _directionsUrl = '/directions/json';
 /// https://developers.google.com/maps/documentation/directions/start
 class GoogleMapsDirections extends GoogleWebService {
   GoogleMapsDirections({
-    String? apiKey,
-    String? baseUrl,
-    Client? httpClient,
-    Map<String, String>? apiHeaders,
+    super.apiKey,
+    super.baseUrl,
+    super.httpClient,
+    super.apiHeaders,
   }) : super(
-          apiKey: apiKey,
-          baseUrl: baseUrl,
           apiPath: _directionsUrl,
-          httpClient: httpClient,
-          apiHeaders: apiHeaders,
         );
 
   Future<DirectionsResponse> directions(
@@ -32,7 +28,7 @@ class GoogleMapsDirections extends GoogleWebService {
     TravelMode? travelMode,
     List<Waypoint> waypoints = const [],
     bool alternatives = false,
-    @deprecated RouteType? avoid,
+    @Deprecated('') RouteType? avoid,
     List<RouteType> avoids = const [],
     String? language,
     Unit? units,
@@ -68,7 +64,7 @@ class GoogleMapsDirections extends GoogleWebService {
     TravelMode? travelMode,
     List<Waypoint> waypoints = const [],
     bool alternatives = false,
-    @deprecated RouteType? avoid,
+    @Deprecated('') RouteType? avoid,
     List<RouteType> avoids = const [],
     String? language,
     Unit? units,
@@ -103,7 +99,7 @@ class GoogleMapsDirections extends GoogleWebService {
     TravelMode? travelMode,
     List<Waypoint> waypoints = const [],
     bool alternatives = false,
-    @deprecated RouteType? avoid,
+    @Deprecated('') RouteType? avoid,
     List<RouteType> avoids = const [],
     String? language,
     Unit? units,
@@ -138,7 +134,7 @@ class GoogleMapsDirections extends GoogleWebService {
     TravelMode? travelMode,
     List<Waypoint> waypoints = const <Waypoint>[],
     bool alternatives = false,
-    @deprecated RouteType? avoid,
+    @Deprecated('') RouteType? avoid,
     List<RouteType> avoids = const <RouteType>[],
     String? language,
     Unit? units,
@@ -260,11 +256,11 @@ class DirectionsResponse extends GoogleResponseStatus {
   final List<Route> routes;
 
   DirectionsResponse({
-    required String status,
-    String? errorMessage,
+    required super.status,
+    super.errorMessage,
     required this.geocodedWaypoints,
     required this.routes,
-  }) : super(status: status, errorMessage: errorMessage);
+  });
 
   factory DirectionsResponse.fromJson(Map<String, dynamic> json) =>
       _$DirectionsResponseFromJson(json);
@@ -408,16 +404,11 @@ class Leg extends _Step {
     this.durationInTraffic,
     this.arrivalTime,
     this.departureTime,
-    required Location startLocation,
-    required Location endLocation,
-    required Value duration,
-    required Value distance,
-  }) : super(
-          startLocation: startLocation,
-          endLocation: endLocation,
-          duration: duration,
-          distance: distance,
-        );
+    required super.startLocation,
+    required super.endLocation,
+    required super.duration,
+    required super.distance,
+  });
 
   factory Leg.fromJson(Map<String, dynamic> json) => _$LegFromJson(json);
   Map<String, dynamic> toJson() => _$LegToJson(this);
@@ -440,18 +431,13 @@ class Step extends _Step {
     required this.travelMode,
     required this.htmlInstructions,
     required this.polyline,
-    required Location startLocation,
-    required Location endLocation,
-    required Value duration,
-    required Value distance,
+    required super.startLocation,
+    required super.endLocation,
+    required super.duration,
+    required super.distance,
     this.transitDetails,
     this.maneuver,
-  }) : super(
-          startLocation: startLocation,
-          endLocation: endLocation,
-          duration: duration,
-          distance: distance,
-        );
+  });
 
   factory Step.fromJson(Map<String, dynamic> json) => _$StepFromJson(json);
   Map<String, dynamic> toJson() => _$StepToJson(this);
@@ -483,8 +469,7 @@ class Value {
 class Fare extends Value {
   final String currency;
 
-  Fare({required this.currency, required num value, required String text})
-      : super(value: value, text: text);
+  Fare({required this.currency, required super.value, required super.text});
 
   factory Fare.fromJson(Map<String, dynamic> json) => _$FareFromJson(json);
   @override
@@ -496,8 +481,7 @@ class Time extends Value {
   /// JSON time_zone
   final String timeZone;
 
-  Time({required this.timeZone, required num value, required String text})
-      : super(value: value, text: text);
+  Time({required this.timeZone, required super.value, required super.text});
 
   factory Time.fromJson(Map<String, dynamic> json) => _$TimeFromJson(json);
   @override

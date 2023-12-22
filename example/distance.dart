@@ -3,7 +3,7 @@ library google_maps_webservice.distance.example;
 import 'dart:async';
 import 'dart:io';
 
-import 'package:google_maps_webservice/distance.dart';
+import 'package:neom_maps_services/distance.dart';
 
 final GoogleDistanceMatrix distanceMatrix =
     GoogleDistanceMatrix(apiKey: Platform.environment['API_KEY']);

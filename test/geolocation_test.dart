@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:google_maps_webservice/geolocation.dart';
+import 'package:neom_maps_services/geolocation.dart';
 import 'package:test/test.dart';
 
 Future<void> main() async {
-  final apiKey = 'MY_API_KEY';
+  const apiKey = 'MY_API_KEY';
 
   var geolocation = GoogleMapsGeolocation(apiKey: apiKey);
 

@@ -5,11 +5,11 @@
 <a href="https://www.buymeacoffee.com/lejardh" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="25px"></a>
 </p>
 
-# google_maps_webservice
+# neom_maps_services
 
 ## General Information
 
-This is the Dart Library for Google Maps Webservices.
+This is a Dart Library for Google Maps Services.
 You can find the Google Maps Platform Documentation [here](https://developers.google.com/maps/web-services), but if you're new to this, you may want to start [here](https://developers.google.com/maps/gmp-get-started).
 
 ## API Key

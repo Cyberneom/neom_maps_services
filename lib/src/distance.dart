@@ -14,16 +14,12 @@ const _distanceUrl = '/distancematrix/json';
 ///https://developers.google.com/maps/documentation/distance-matrix/intro
 class GoogleDistanceMatrix extends GoogleWebService {
   GoogleDistanceMatrix({
-    String? apiKey,
-    String? baseUrl,
-    Client? httpClient,
-    Map<String, String>? apiHeaders,
+    super.apiKey,
+    super.baseUrl,
+    super.httpClient,
+    super.apiHeaders,
   }) : super(
-          apiKey: apiKey,
-          baseUrl: baseUrl,
           apiPath: _distanceUrl,
-          httpClient: httpClient,
-          apiHeaders: apiHeaders,
         );
 
   Future<DistanceResponse> _distance(
@@ -67,7 +63,7 @@ class GoogleDistanceMatrix extends GoogleWebService {
     String? languageCode,
     bool alternative = false,
     String? region,
-    @deprecated RouteType? avoid,
+    @Deprecated('') RouteType? avoid,
     List<RouteType> avoids = const <RouteType>[],
     Unit? unit,
     Object? /*DateTime|num*/ arrivalTime,
@@ -107,7 +103,7 @@ class GoogleDistanceMatrix extends GoogleWebService {
     String? languageCode,
     bool alternative = false,
     String? region,
-    @deprecated RouteType? avoid,
+    @Deprecated('') RouteType? avoid,
     List<RouteType> avoids = const <RouteType>[],
     Unit? unit,
     Object? /*DateTime|num*/ arrivalTime,
@@ -275,15 +271,12 @@ class DistanceResponse extends GoogleResponseStatus {
   List<String> get destinationAddress => destinationAddresses;
 
   DistanceResponse({
-    required String status,
-    String? errorMessage,
+    required super.status,
+    super.errorMessage,
     required this.originAddresses,
     required this.destinationAddresses,
     required this.rows,
-  }) : super(
-          status: status,
-          errorMessage: errorMessage,
-        );
+  });
 
   factory DistanceResponse.fromJson(Map<String, dynamic> json) =>
       _$DistanceResponseFromJson(json);
