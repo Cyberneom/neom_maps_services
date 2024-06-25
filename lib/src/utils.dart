@@ -3,9 +3,20 @@ library google_maps_webservice.utils;
 import 'dart:async';
 
 import 'package:http/http.dart';
+import 'package:logger/logger.dart';
 import 'package:meta/meta.dart';
 
 final kGMapsUrl = Uri.parse('https://maps.googleapis.com/maps/api');
+final logger = Logger(
+    printer: PrettyPrinter(
+      methodCount: 5,
+      errorMethodCount: 5,
+      lineLength: 50,
+      colors: true,
+      printEmojis: true,
+      printTime: false,
+    )
+);
 
 abstract class GoogleWebService {
   @protected

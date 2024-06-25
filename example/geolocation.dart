@@ -4,6 +4,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:neom_maps_services/geolocation.dart';
+import 'package:neom_maps_services/src/utils.dart';
 
 final geolocation =
     GoogleMapsGeolocation(apiKey: Platform.environment['API_KEY']);
@@ -35,11 +36,11 @@ Future<void> main() async {
   res = await geolocation.getGeolocation(considerIp: false);
 
   if (res.isOkay) {
-    print('Latitude: ${res.location?.lat}');
-    print('Longitude: ${res.location?.lng}');
-    print('Accuracy: ${res.accuracy}');
+    logger.d('Latitude: ${res.location?.lat}');
+    logger.d('Longitude: ${res.location?.lng}');
+    logger.d('Accuracy: ${res.accuracy}');
   } else {
-    print(res.error?.message);
+    logger.d(res.error?.message);
   }
 
   geolocation.dispose();

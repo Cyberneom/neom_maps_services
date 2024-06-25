@@ -4,6 +4,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:neom_maps_services/directions.dart';
+import 'package:neom_maps_services/src/utils.dart';
 
 final directions =
     GoogleMapsDirections(apiKey: Platform.environment['API_KEY']);
@@ -12,15 +13,15 @@ Future<void> main() async {
   var res =
       await directions.directionsWithAddress('Paris, France', 'Rennes, France');
 
-  print(res.status);
+  logger.d(res.status);
   if (res.isOkay) {
-    print('${res.routes.length} routes');
+    logger.d('${res.routes.length} routes');
     for (var r in res.routes) {
-      print(r.summary);
-      print(r.bounds);
+      logger.d(r.summary);
+      logger.d(r.bounds);
     }
   } else {
-    print(res.errorMessage);
+    logger.d(res.errorMessage);
   }
 
   directions.dispose();

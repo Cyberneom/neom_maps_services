@@ -4,6 +4,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:neom_maps_services/distance.dart';
+import 'package:neom_maps_services/src/utils.dart';
 
 final GoogleDistanceMatrix distanceMatrix =
     GoogleDistanceMatrix(apiKey: Platform.environment['API_KEY']);
@@ -24,18 +25,18 @@ Future<void> main() async {
   );
 
   try {
-    print('response ${responseForLocation.status}');
+    logger.d('response ${responseForLocation.status}');
 
     if (responseForLocation.isOkay) {
-      print(responseForLocation.destinationAddresses.length);
+      logger.d(responseForLocation.destinationAddresses.length);
       for (var row in responseForLocation.rows) {
         for (var element in row.elements) {
-          print(
+          logger.d(
               'distance ${element.distance.text} duration ${element.duration.text}');
         }
       }
     } else {
-      print('ERROR: ${responseForLocation.errorMessage}');
+      logger.d('ERROR: ${responseForLocation.errorMessage}');
     }
   } finally {
     distanceMatrix.dispose();

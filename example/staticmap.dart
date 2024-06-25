@@ -2,6 +2,7 @@ library google_maps_webservice.staticmap.example;
 
 import 'dart:io';
 
+import 'package:neom_maps_services/src/utils.dart';
 import 'package:neom_maps_services/staticmap.dart';
 
 final apiKey = Platform.environment['API_KEY'] ?? '';
@@ -20,5 +21,5 @@ void main() {
     scale: false,
   );
 
-  print(staticMap.getUrl());
+  logger.d(staticMap.getUrl());
 }

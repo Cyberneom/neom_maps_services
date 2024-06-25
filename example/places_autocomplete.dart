@@ -3,6 +3,7 @@ library google_maps_webservice.places.autocomplete.example;
 import 'dart:async';
 import 'dart:io';
 import 'package:neom_maps_services/places.dart';
+import 'package:neom_maps_services/src/utils.dart';
 
 final places = GoogleMapsPlaces(apiKey: Platform.environment['API_KEY']);
 
@@ -13,7 +14,7 @@ Future<void> main() async {
   if (res.isOkay) {
     // list autocomplete prediction
     for (var p in res.predictions) {
-      print('- ${p.description}');
+      logger.d('- ${p.description}');
     }
 
     final placeId = res.predictions.first.placeId;
@@ -25,12 +26,12 @@ Future<void> main() async {
       sessionToken: sessionToken,
     );
 
-    print('\nDetails :');
-    print(details.result.formattedAddress);
-    print(details.result.formattedPhoneNumber);
-    print(details.result.url);
+    logger.d('\nDetails :');
+    logger.d(details.result.formattedAddress);
+    logger.d(details.result.formattedPhoneNumber);
+    logger.d(details.result.url);
   } else {
-    print(res.errorMessage);
+    logger.d(res.errorMessage);
   }
 
   places.dispose();
