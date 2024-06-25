@@ -4,7 +4,6 @@ import 'dart:async';
 
 import 'package:http/http.dart';
 import 'package:logger/logger.dart';
-import 'package:meta/meta.dart';
 
 final kGMapsUrl = Uri.parse('https://maps.googleapis.com/maps/api');
 final logger = Logger(
@@ -19,16 +18,13 @@ final logger = Logger(
 );
 
 abstract class GoogleWebService {
-  @protected
+
   final Client _httpClient;
 
-  @protected
   late final Uri _url;
 
-  @protected
   final String? _apiKey;
 
-  @protected
   final Map<String, String>? _apiHeaders;
 
   Uri get url => _url;
@@ -57,7 +53,6 @@ abstract class GoogleWebService {
     _url = uri.replace(path: '${uri.path}$apiPath');
   }
 
-  @protected
   String buildQuery(Map<String, dynamic> params) {
     final query = [];
     params.forEach((key, val) {
@@ -74,12 +69,10 @@ abstract class GoogleWebService {
 
   void dispose() => httpClient.close();
 
-  @protected
   Future<Response> doGet(String url, {Map<String, String>? headers}) {
     return httpClient.get(Uri.parse(url), headers: headers);
   }
 
-  @protected
   Future<Response> doPost(
     String url,
     String body, {
