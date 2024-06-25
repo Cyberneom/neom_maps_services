@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.3
+- Removing meta package
+
 ## 1.0.2
 
 - Updating pubspec libraries
