@@ -1,6 +1,6 @@
 name: neom_maps_services
 description: Google Maps Web Services Library Maintained by Cyberneom
-version: 1.0.1
+version: 1.0.2
 homepage: https://github.com/Cyberneom/neom_maps_services
 
 environment:
