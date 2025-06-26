@@ -1,4 +1,4 @@
-library google_maps_webservice.utils;
+library;
 
 import 'dart:async';
 
@@ -13,7 +13,6 @@ final logger = Logger(
       lineLength: 50,
       colors: true,
       printEmojis: true,
-      printTime: false,
     )
 );
 

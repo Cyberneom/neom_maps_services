@@ -1,4 +1,4 @@
-library google_maps_webservice.distance;
+library;
 
 export './src/core.dart';
 export './src/distance.dart';

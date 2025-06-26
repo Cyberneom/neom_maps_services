@@ -1,4 +1,4 @@
-library google_maps_webservice.places.autocomplete.example;
+library;
 
 import 'dart:async';
 import 'dart:io';

@@ -1,4 +1,4 @@
-library google_maps_webservice.distance.example;
+library;
 
 import 'dart:async';
 import 'dart:io';

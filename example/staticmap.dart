@@ -1,4 +1,4 @@
-library google_maps_webservice.staticmap.example;
+library;
 
 import 'dart:io';
 
