@@ -1,4 +1,8 @@
 # Changelog
+## 2.0.0 - Updating libraries
+- Updating for Places API changes
+- Improving models structure
+- Cleaning up codebase
 ## 1.1.0 - Updating libraries
 - Updating pubspec libraries
 ## 1.0.3
