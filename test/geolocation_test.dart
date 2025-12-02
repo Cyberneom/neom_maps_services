@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:neom_maps_services/geolocation.dart';
+import 'package:neom_maps_services/domain/models/geolocation.dart';
 import 'package:test/test.dart';
 
 Future<void> main() async {
@@ -26,8 +26,8 @@ Future<void> main() async {
       var response = GeolocationResponse.fromJson(_responseExample);
 
       expect(response.isOkay, isTrue);
-      expect(response.location?.lat, 33.3632256);
-      expect(response.location?.lng, -117.0874871);
+      expect(response.location?.latitude, 33.3632256);
+      expect(response.location?.longitude, -117.0874871);
       expect(response.accuracy, 20);
     });
 

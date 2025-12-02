@@ -1,0 +1,25 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'photo.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+Photo _$PhotoFromJson(Map<String, dynamic> json) => Photo(
+  photoReference: json['photo_reference'] as String,
+  height: json['height'] as num,
+  width: json['width'] as num,
+  htmlAttributions:
+      (json['html_attributions'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList() ??
+      [],
+);
+
+Map<String, dynamic> _$PhotoToJson(Photo instance) => <String, dynamic>{
+  'photo_reference': instance.photoReference,
+  'height': instance.height,
+  'width': instance.width,
+  'html_attributions': instance.htmlAttributions,
+};

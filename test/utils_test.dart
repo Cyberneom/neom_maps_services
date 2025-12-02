@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:neom_maps_services/src/utils.dart';
+import 'package:neom_maps_services/utils/neom_maps_utilities.dart';
 import 'package:test/test.dart';
 
 Future<void> main() async {
